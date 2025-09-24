@@ -1,0 +1,20 @@
+name: harpertoken
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Swift
+      uses: swift-actions/setup-swift@v2
+    - name: Build
+      run: swift build
+    - name: Run
+      run: swift run
+    - name: E2E
+      run: swift run | grep -q "System: Darwin"
+
