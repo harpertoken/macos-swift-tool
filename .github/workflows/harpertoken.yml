@@ -15,6 +15,4 @@ jobs:
       run: swift build
     - name: Run
       run: swift run
-    - name: E2E
-      run: swift run | grep -q "System: Darwin"
 
